@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo.xsd">
+
+
+    <!-- stolen from: https://www.baeldung.com/spring-data-mongodb-tutorial -->
+    <mongo:mongo-client id="mongoClient" host="localhost"/>
+    <mongo:db-factory id="mongoDbFactory" dbname="coopr_hq" mongo-ref="mongoClient"/>
+    <mongo:repositories base-package="com.coopr.hq" mongo-template-ref="mongoTemplate" />
+
+    <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+        <constructor-arg ref="mongoDbFactory"/>
+    </bean>
+
+
+    <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+
+</beans>
