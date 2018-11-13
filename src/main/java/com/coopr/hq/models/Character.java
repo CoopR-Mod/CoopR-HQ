@@ -14,6 +14,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * Beschreibung: -                     
  * API: -                              
  **************************************/
+@Data
+@NoArgsConstructor
 @AllArgsConstructor
 @Document(collection = "coopr_hq_characters")
 public class Character {
@@ -32,85 +34,5 @@ public class Character {
   // Scores
   private int reputation;
   private int legacy;
-
-  public String getUid() {
-    return uid;
-  }
-
-  public void setUid(String uid) {
-    this.uid = uid;
-  }
-
-  public int getSlot() {
-    return slot;
-  }
-
-  public void setSlot(int slot) {
-    this.slot = slot;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getRole() {
-    return role;
-  }
-
-  public void setRole(String role) {
-    this.role = role;
-  }
-
-  public String getState() {
-    return state;
-  }
-
-  public void setState(String state) {
-    this.state = state;
-  }
-
-  public String getPosition() {
-    return position;
-  }
-
-  public void setPosition(String position) {
-    this.position = position;
-  }
-
-  public double getTimestampWIA() {
-    return timestampWIA;
-  }
-
-  public void setTimestampWIA(double timestampWIA) {
-    this.timestampWIA = timestampWIA;
-  }
-
-  public String getLoadout() {
-    return loadout;
-  }
-
-  public void setLoadout(String loadout) {
-    this.loadout = loadout;
-  }
-
-  public int getReputation() {
-    return reputation;
-  }
-
-  public void setReputation(int reputation) {
-    this.reputation = reputation;
-  }
-
-  public int getLegacy() {
-    return legacy;
-  }
-
-  public void setLegacy(int legacy) {
-    this.legacy = legacy;
-  }
 
 }

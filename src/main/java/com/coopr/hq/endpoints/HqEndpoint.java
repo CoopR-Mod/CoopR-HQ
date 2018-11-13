@@ -1,14 +1,13 @@
 package com.coopr.hq.endpoints;
 
 import com.coopr.hq.models.Character;
-import com.coopr.hq.models.Person;
 import lombok.extern.java.Log;
+import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.logging.Level;
 
@@ -32,14 +31,13 @@ public class HqEndpoint {
 
   @PostMapping(value = "/save/characters/", consumes = MediaType.APPLICATION_JSON_VALUE)
   public void updateCharacters(@RequestBody List<Character> characters) {
-    mongoTemplate.save(characters);
-    log.log(Level.INFO, "{} characters have been saved", characters.size());
+    characters.forEach(this::updateCharacter);
   }
 
   @PostMapping(value = "/save/character/", consumes = MediaType.APPLICATION_JSON_VALUE)
   public void updateCharacter(@RequestBody Character character) {
     mongoTemplate.save(character);
-    log.log(Level.INFO, "character with uid {} has been saved", character.getUid());
+    log.info("character with uid " + character.getUid() + " has been saved");
   }
 
   @GetMapping("/fetch/characters/")
