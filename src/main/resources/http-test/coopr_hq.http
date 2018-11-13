@@ -6,20 +6,20 @@
 # * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
 
 
-POST http://localhost:8080/save/character/
+POST http://{{host}}:8080/save/character/
 Content-Type: application/json
 
 < character.json
 
 ###
 
-POST http://localhost:8080/save/characters/
+POST http://{{host}}:8080/save/characters/
 Content-Type: application/json
 
 < characters.json
 
 ###
 
-GET http://localhost:8080/fetch/charactersWrapper/
+GET http://{{host}}:8080/fetch/characters/
 
 ###
