@@ -23,3 +23,7 @@ Content-Type: application/json
 GET http://{{host}}:8080/fetch/characters/
 
 ###
+
+GET http://{{host}}:8080/fetch/character/7144035592
+
+###

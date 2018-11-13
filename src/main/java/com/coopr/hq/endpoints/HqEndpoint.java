@@ -2,14 +2,12 @@ package com.coopr.hq.endpoints;
 
 import com.coopr.hq.models.Character;
 import lombok.extern.java.Log;
-import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.logging.Level;
 
 /***************************************
  * Author: xetra11                     
@@ -43,6 +41,11 @@ public class HqEndpoint {
   @GetMapping("/fetch/characters/")
   public List<Character> fetchCharacter() {
     return mongoTemplate.findAll(Character.class);
+  }
+
+  @GetMapping("/fetch/character/{id}")
+  public Character fetchOneCharacters(@PathVariable("id") String id) {
+    return mongoTemplate.findById(id, Character.class);
   }
 
 }
