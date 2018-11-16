@@ -8,7 +8,7 @@
     <version>0.0.1</version>
     <packaging>jar</packaging>
 
-    <name>coopr-hq</name>
+    <name>CoopR HQ Webservice</name>
     <description>CoopR Mod HQ Web Service</description>
 
     <parent>
