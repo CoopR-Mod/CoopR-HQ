@@ -19,6 +19,11 @@ import java.util.List;
 @RestController
 @Log
 public class HqEndpoint {
+  private final String API_VERSION = "/api/v0.1/";
+  private final String CHARACTER = "character/";
+  private final String CHARACTER_LIST = "characters/";
+  private final String METHOD_SAVE = "save";
+  private final String METHOD_FETCH = "fetch";
 
   private MongoTemplate mongoTemplate;
 
@@ -27,24 +32,24 @@ public class HqEndpoint {
     this.mongoTemplate = mongoTemplate;
   }
 
-  @PostMapping(value = "/save/characters/", consumes = MediaType.APPLICATION_JSON_VALUE)
+  @PostMapping(value = API_VERSION + CHARACTER_LIST + METHOD_SAVE, consumes = MediaType.APPLICATION_JSON_VALUE)
   public void updateCharacters(@RequestBody List<Character> characters) {
     characters.forEach(this::updateCharacter);
   }
 
-  @PostMapping(value = "/save/character/", consumes = MediaType.APPLICATION_JSON_VALUE)
+  @PostMapping(value = API_VERSION + CHARACTER + METHOD_SAVE, consumes = MediaType.APPLICATION_JSON_VALUE)
   public void updateCharacter(@RequestBody Character character) {
     mongoTemplate.save(character);
     log.info("character with uid " + character.getUid() + " has been saved");
   }
 
-  @GetMapping("/fetch/characters/")
-  public List<Character> fetchCharacter() {
+  @GetMapping(API_VERSION + CHARACTER_LIST + METHOD_FETCH)
+  public List<Character> fetchAllCharaters() {
     return mongoTemplate.findAll(Character.class);
   }
 
-  @GetMapping("/fetch/character/{id}")
-  public Character fetchOneCharacters(@PathVariable("id") String id) {
+  @GetMapping(API_VERSION + CHARACTER + METHOD_FETCH + "{id}")
+  public Character fetchCharacter(@PathVariable("id") String id) {
     return mongoTemplate.findById(id, Character.class);
   }
 
