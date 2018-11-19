@@ -12,6 +12,7 @@
     <description>CoopR Mod HQ</description>
 
     <modules>
+        <module>coopr-hq-client</module>
         <module>coopr-hq-core</module>
         <module>coopr-hq-webservice</module>
     </modules>
