@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.coopr</groupId>
-    <artifactId>coopr-hq-webservice</artifactId>
+    <artifactId>coopr-hq</artifactId>
     <version>0.0.1</version>
     <packaging>pom</packaging>
 
