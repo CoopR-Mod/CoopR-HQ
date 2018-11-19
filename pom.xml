@@ -3,13 +3,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.coopr.hq</groupId>
-    <artifactId>coopr-hq</artifactId>
+    <groupId>com.coopr</groupId>
+    <artifactId>coopr-hq-webservice</artifactId>
     <version>0.0.1</version>
     <packaging>jar</packaging>
 
     <name>CoopR HQ Webservice</name>
-    <description>CoopR Mod HQ Web Service</description>
+    <description>CoopR Mod HQ Webservice</description>
+
+    <modules>
+        <module>coopr-hq-core</module>
+    </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -25,6 +29,13 @@
     </properties>
 
     <dependencies>
+        <!-- CoopR HQ Core -->
+        <dependency>
+            <groupId>com.coopr</groupId>
+            <artifactId>coopr-hq-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!-- Spring Framework -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
