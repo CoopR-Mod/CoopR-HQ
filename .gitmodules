@@ -1,6 +1,0 @@
-[submodule "coopr-hq-core"]
-	path = coopr-hq-core
-	url = https://github.com/CoopR-Mod/CoopR-HQ-Core.git
-[submodule "coopr-hq-client"]
-	path = coopr-hq-client
-	url = https://github.com/CoopR-Mod/CoopR-HQ-Java-Client.git
