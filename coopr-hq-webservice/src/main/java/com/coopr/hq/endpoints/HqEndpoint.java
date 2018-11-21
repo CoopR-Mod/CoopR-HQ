@@ -32,6 +32,7 @@ public class HqEndpoint {
     this.mongoTemplate = mongoTemplate;
   }
 
+  //Posts
   @PostMapping(value = API_VERSION + CHARACTER_LIST + METHOD_SAVE, consumes = MediaType.APPLICATION_JSON_VALUE)
   public void updateCharacters(@RequestBody List<Character> characters) {
     characters.forEach(this::updateCharacter);
@@ -43,6 +44,7 @@ public class HqEndpoint {
     log.info("character with uid " + character.getUid() + " has been saved");
   }
 
+  //Queries
   @GetMapping(API_VERSION + CHARACTER_LIST + METHOD_FETCH)
   public List<Character> fetchAllCharaters() {
     return mongoTemplate.findAll(Character.class);
