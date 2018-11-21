@@ -34,6 +34,6 @@ public class Character {
   private int reputation;
   private int legacy;
   // ACE3
-  private String aceRole;
+  private AceRole aceRole;
 
 }

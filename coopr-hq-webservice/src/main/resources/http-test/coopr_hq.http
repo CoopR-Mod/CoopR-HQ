@@ -24,6 +24,6 @@ GET http://{{host}}:80/api/v0.1/characters/fetch
 
 ###
 
-GET http://{{host}}:80/api/v0.1/character/fetch/7144035592
+GET http://{{host}}:80/api/v0.1/character/fetch/4607255831
 
 ###
