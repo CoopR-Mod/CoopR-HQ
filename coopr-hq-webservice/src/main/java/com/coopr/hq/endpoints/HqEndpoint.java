@@ -48,7 +48,7 @@ public class HqEndpoint {
     return mongoTemplate.findAll(Character.class);
   }
 
-  @GetMapping(API_VERSION + CHARACTER + METHOD_FETCH + "{id}")
+  @GetMapping(API_VERSION + CHARACTER + METHOD_FETCH + "/{id}")
   public Character fetchCharacter(@PathVariable("id") String id) {
     return mongoTemplate.findById(id, Character.class);
   }
