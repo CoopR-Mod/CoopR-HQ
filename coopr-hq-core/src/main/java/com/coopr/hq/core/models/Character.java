@@ -23,9 +23,9 @@ public class Character {
   private String uid;
   private int slot;
   private String name;
-  private String role;
+  private CharacterRole role;
   // State
-  private String state;
+  private CharacterState state;
   private String position;
   private double timestampWIA;
   // Equipment
