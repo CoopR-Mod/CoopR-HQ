@@ -1,5 +1,6 @@
 package com.coopr.hq.client
 
+import com.coopr.hq.core.models.AceRole
 import com.coopr.hq.core.models.Character
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.beans.factory.annotation.Autowired
@@ -57,19 +58,19 @@ class HQConnectionSpec extends Specification {
     def getTestCharacter123() {
         new Character("123", 1, "Peter of v0.1", "dpl_role_medic", "dpl_state_ok",
                 "[1423423,234234,2342342]", 42423.3, "[loadoutTest]",
-                32, 1, "ace_medic")
+                32, 1, AceRole.ACE_MEDIC)
     }
 
     def getTestCharacter345() {
         new Character("345", 1, "Sabine of v0.2", "dpl_role_medic", "dpl_state_ok",
                 "[1423423,234234,2342342]", 42423.3, "[loadoutTest]",
-                32, 1, "ace_medic")
+                32, 1, AceRole.ACE_MEDIC)
     }
 
     def getTestCharacter678() {
         new Character("678", 1, "Anna of v0.1 (latest)", "dpl_role_medic", "dpl_state_ok",
                 "[1423423,234234,2342342]", 42423.3, "[loadoutTest]",
-                32, 1, "ace_medic")
+                32, 1, AceRole.ACE_MEDIC)
     }
 }
 
