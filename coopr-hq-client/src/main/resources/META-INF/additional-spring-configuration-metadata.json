@@ -1,0 +1,10 @@
+{
+  "properties": [
+    {
+      "name": "hq.host",
+      "type": "java.lang.String",
+      "defaultValue": "coopr-hq.com",
+      "description": "hostname of the CoopR HQ webservice."
+    }
+  ]
+}
