@@ -45,11 +45,13 @@ public class HqEndpoint {
   }
 
   //Queries
+  @CrossOrigin
   @GetMapping(API_VERSION + CHARACTER_LIST + METHOD_FETCH)
   public List<Character> fetchAllCharaters() {
     return mongoTemplate.findAll(Character.class);
   }
 
+  @CrossOrigin
   @GetMapping(API_VERSION + CHARACTER + METHOD_FETCH + "/{id}")
   public Character fetchCharacter(@PathVariable("id") String id) {
     return mongoTemplate.findById(id, Character.class);
