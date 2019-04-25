@@ -21,6 +21,7 @@ import java.util.List;
 public class HqEndpoint {
   private final String API_VERSION = "/api/v0.1/";
   private final String CHARACTER = "character/";
+  private final String PLAYER = "player/";
   private final String CHARACTER_LIST = "characters/";
   private final String METHOD_SAVE = "save";
   private final String METHOD_FETCH = "fetch";
@@ -47,14 +48,14 @@ public class HqEndpoint {
   //Queries
   @CrossOrigin
   @GetMapping(API_VERSION + CHARACTER_LIST + METHOD_FETCH)
-  public List<Character> fetchAllCharaters() {
+  public List<Character> fetchAllCharacters() {
     return mongoTemplate.findAll(Character.class);
   }
 
   @CrossOrigin
-  @GetMapping(API_VERSION + CHARACTER + METHOD_FETCH + "/{id}")
-  public Character fetchCharacter(@PathVariable("id") String id) {
-    return mongoTemplate.findById(id, Character.class);
+  @GetMapping(API_VERSION + CHARACTER + METHOD_FETCH + "/{characterId}")
+  public Character fetchCharacter(@PathVariable("characterId") String characterId) {
+    return mongoTemplate.findById(characterId, Character.class);
   }
 
 }

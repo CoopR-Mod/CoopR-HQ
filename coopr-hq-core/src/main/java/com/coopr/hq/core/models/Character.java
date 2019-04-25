@@ -20,6 +20,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Character {
   // Meta
   @Id
+  private String characterId;
   private String uid;
   private int slot;
   private String name;
