@@ -23,6 +23,7 @@ public class HqEndpoint {
   private final String API_VERSION = "/api/v0.1/";
   private final String CHARACTER = "character/";
   private final String PLAYER = "player/";
+  private final String PLAYER_LIST = "players/";
   private final String CHARACTER_LIST = "characters/";
   private final String METHOD_SAVE = "save";
   private final String METHOD_FETCH = "fetch";
@@ -62,6 +63,18 @@ public class HqEndpoint {
   @GetMapping(API_VERSION + CHARACTER + METHOD_FETCH + "/{characterId}")
   public Character fetchCharacter(@PathVariable("characterId") String characterId) {
     return mongoTemplate.findById(characterId, Character.class);
+  }
+
+  @CrossOrigin
+  @GetMapping(API_VERSION + PLAYER + METHOD_FETCH + "/{uid}")
+  public Player fetchPlayer(@PathVariable("uid") String uid) {
+    return mongoTemplate.findById(uid, Player.class);
+  }
+
+  @CrossOrigin
+  @GetMapping(API_VERSION + PLAYER_LIST + METHOD_FETCH)
+  public List<Player> fetchAllPlayers() {
+    return mongoTemplate.findAll(Player.class);
   }
 
 }

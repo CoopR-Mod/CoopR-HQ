@@ -9,7 +9,14 @@
 POST http://{{host}}:80/api/v0.1/characters/save
 Content-Type: application/json
 
-< testCharactersForPlayer.json
+< testCharactersForPlayer1.json
+
+###
+
+POST http://{{host}}:80/api/v0.1/characters/save
+Content-Type: application/json
+
+< testCharactersForPlayer2.json
 
 ###
 
@@ -23,7 +30,14 @@ Content-Type: application/json
 POST http://{{host}}:80/api/v0.1/player/save
 Content-Type: application/json
 
-< testPlayer.json
+< testPlayer1.json
+
+###
+
+POST http://{{host}}:80/api/v0.1/player/save
+Content-Type: application/json
+
+< testPlayer2.json
 
 ###
 
@@ -32,5 +46,13 @@ GET http://{{host}}:80/api/v0.1/characters/fetch
 ###
 
 GET http://{{host}}:80/api/v0.1/character/fetch/4607255831
+
+###
+
+GET http://{{host}}:80/api/v0.1/player/fetch/4607255831
+
+###
+
+GET http://{{host}}:80/api/v0.1/players/fetch
 
 ###

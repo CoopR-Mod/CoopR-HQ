@@ -1,8 +1,6 @@
 [
   {
     "characterId" : "4235",
-    "uid": "4607255831",
-    "slot": 1,
     "name": "Creek McCrussels",
     "role": "MEDIC",
     "state": "WOUNDED_IN_ACTION",
@@ -15,8 +13,6 @@
   },
   {
     "characterId" : "1234",
-    "uid": "4607255831",
-    "slot": 2,
     "name": "Johnny Boomer",
     "role": "LEADER",
     "state": "HOSTAGE",
@@ -29,8 +25,6 @@
   },
   {
     "characterId" : "5432",
-    "uid": "4607255831",
-    "slot": 3,
     "name": "Marcy McFarsy",
     "role": "DMR",
     "state": "OK",
