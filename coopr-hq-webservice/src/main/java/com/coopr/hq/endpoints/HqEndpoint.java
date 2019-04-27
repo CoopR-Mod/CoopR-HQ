@@ -9,6 +9,8 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 /***************************************
  * Author: xetra11                     
@@ -75,6 +77,16 @@ public class HqEndpoint {
   @GetMapping(API_VERSION + PLAYER_LIST + METHOD_FETCH)
   public List<Player> fetchAllPlayers() {
     return mongoTemplate.findAll(Player.class);
+  }
+
+  @CrossOrigin
+  @GetMapping(API_VERSION + PLAYER + CHARACTER_LIST + METHOD_FETCH + "/{uid}")
+  public List<Character> fetchCharactersOfPlayer(@PathVariable("uid") String uid) {
+    Player player = mongoTemplate.findById(uid, Player.class);
+    List<String> characterIDs = Objects.requireNonNull(player, "player was null").getCharacters();
+    return characterIDs.stream()
+            .map(characterId -> mongoTemplate.findById(characterId, Character.class))
+            .collect(Collectors.toList());
   }
 
 }
