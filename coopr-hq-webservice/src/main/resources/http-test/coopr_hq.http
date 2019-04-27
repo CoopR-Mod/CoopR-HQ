@@ -66,7 +66,7 @@ Authorization: Basic dXNlcjE6dXNlcjFQYXNz
 ###
 
 GET http://{{host}}:80/api/v0.1/player/characters/fetch/4607255831
-Authorization: Basic dXNlcjE6dXNlcjFQYXNz
+Authorization: Basic eGV0cmE2NjY6YWJjMTIz
 
 ###
 GET http://{{host}}:80/api/v0.1/player/characters/fetch/0000000001

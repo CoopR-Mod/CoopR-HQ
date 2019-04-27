@@ -22,10 +22,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
   @Autowired
-  public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-    auth.inMemoryAuthentication()
-            .withUser("user1").password(passwordEncoder().encode("user1Pass"))
-            .authorities("USER");
+  private HQAuthenticationProvider authProvider;
+
+  @Override
+  public void configure(AuthenticationManagerBuilder auth) throws Exception {
+    auth.authenticationProvider(authProvider);
   }
 
   @Override
