@@ -43,7 +43,7 @@ public class HqEndpoint {
   @PostMapping(value = API_VERSION + CHARACTER + METHOD_SAVE, consumes = MediaType.APPLICATION_JSON_VALUE)
   public void updateCharacter(@RequestBody Character character) {
     mongoTemplate.save(character);
-    log.info("character with uid " + character.getUid() + " has been saved");
+    log.info("character with uid " + character.getCharacterId() + " has been saved");
   }
 
   @PostMapping(value = API_VERSION + PLAYER + METHOD_SAVE, consumes = MediaType.APPLICATION_JSON_VALUE)

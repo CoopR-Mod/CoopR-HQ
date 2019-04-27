@@ -58,19 +58,19 @@ class HQConnectionSpec extends Specification {
     }
 
     def getTestCharacter123() {
-        new Character("123","423523", 1, "Peter of v0.1", CharacterRole.MEDIC, CharacterState.OK,
+        new Character("123", "Peter of v0.1", CharacterRole.MEDIC, CharacterState.OK,
                 "[1423423,234234,2342342]", 42423.3, "[loadoutTest]",
                 32, 1, AceRole.ACE_MEDIC)
     }
 
     def getTestCharacter345() {
-        new Character("345", "423523", 2, "Sabine of v0.2", CharacterRole.MEDIC, CharacterState.OK,
+        new Character("345",, "Sabine of v0.2", CharacterRole.MEDIC, CharacterState.OK,
                 "[1423423,234234,2342342]", 42423.3, "[loadoutTest]",
                 32, 1, AceRole.ACE_MEDIC)
     }
 
     def getTestCharacter678() {
-        new Character("678","423523", 3, "Anna of v0.1 (latest)", CharacterRole.MEDIC, CharacterState.OK,
+        new Character("678", "Anna of v0.1 (latest)", CharacterRole.MEDIC, CharacterState.OK,
                 "[1423423,234234,2342342]", 42423.3, "[loadoutTest]",
                 32, 1, AceRole.ACE_MEDIC)
     }
