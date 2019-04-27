@@ -1,6 +1,7 @@
 package com.coopr.hq.endpoints;
 
 import com.coopr.hq.core.models.Character;
+import com.coopr.hq.core.models.Player;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -43,6 +44,11 @@ public class HqEndpoint {
   public void updateCharacter(@RequestBody Character character) {
     mongoTemplate.save(character);
     log.info("character with uid " + character.getUid() + " has been saved");
+  }
+
+  @PostMapping(value = API_VERSION + PLAYER + METHOD_SAVE, consumes = MediaType.APPLICATION_JSON_VALUE)
+  public void updatePlayer(@RequestBody Player player) {
+    mongoTemplate.save(player);
   }
 
   //Queries

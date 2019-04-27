@@ -6,17 +6,24 @@
 # * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
 
 
-POST http://{{host}}:80/api/v0.1/character/save
+POST http://{{host}}:80/api/v0.1/characters/save
 Content-Type: application/json
 
-< character.json
+< testCharactersForPlayer.json
 
 ###
 
 POST http://{{host}}:80/api/v0.1/characters/save
 Content-Type: application/json
 
-< characters.json
+< allCharacters.json
+
+###
+
+POST http://{{host}}:80/api/v0.1/player/save
+Content-Type: application/json
+
+< testPlayer.json
 
 ###
 
