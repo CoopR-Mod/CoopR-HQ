@@ -32,11 +32,11 @@ public class HQAuthenticationProvider implements AuthenticationProvider {
 
   @Override
   public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-    String name = authentication.getName();
+    String uid = authentication.getName();
     String password = authentication.getCredentials().toString();
 
-    log.info("trying to authenticate for " + name);
-    Query query = new Query().addCriteria(Criteria.where("username").is(name));
+    log.info("trying to authenticate for " + uid);
+    Query query = new Query().addCriteria(Criteria.where("_id").is(uid));
     Player player = mongoTemplate.findOne(query, Player.class);
 
     if (player == null) {
@@ -45,7 +45,7 @@ public class HQAuthenticationProvider implements AuthenticationProvider {
 
     log.info("found " + player);
 
-    return new UsernamePasswordAuthenticationToken(name, password, new ArrayList<>());
+    return new UsernamePasswordAuthenticationToken(uid, password, new ArrayList<>());
   }
 
   @Override

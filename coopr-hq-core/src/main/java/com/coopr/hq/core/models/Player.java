@@ -23,7 +23,6 @@ public class Player {
   // Meta
   @Id
   private String uid;
-  private String username;
   private String password;
   private List<String> characters;
 }

@@ -61,12 +61,12 @@ GET http://{{host}}:80/api/v0.1/player/fetch/4607255831
 ###
 
 GET http://{{host}}:80/api/v0.1/players/fetch
-Authorization: Basic dXNlcjE6dXNlcjFQYXNz
+Authorization: Basic MTIzNTM2NDMyNDphYmMxMjM=
 
 ###
 
 GET http://{{host}}:80/api/v0.1/player/characters/fetch/4607255831
-Authorization: Basic eGV0cmE2NjY6YWJjMTIz
+Authorization: Basic eGV0cmE1NTU6YWJjMTIz
 
 ###
 GET http://{{host}}:80/api/v0.1/player/characters/fetch/0000000001

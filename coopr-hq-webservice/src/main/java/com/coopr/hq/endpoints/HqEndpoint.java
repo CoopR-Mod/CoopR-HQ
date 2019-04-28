@@ -62,13 +62,13 @@ public class HqEndpoint {
   }
 
   @CrossOrigin
-  @GetMapping(API_VERSION + CHARACTER + METHOD_FETCH + "/{characterId}")
+  @GetMapping(API_VERSION + CHARACTER + METHOD_FETCH + "/{characterId:^[0-9]*$}")
   public Character fetchCharacter(@PathVariable("characterId") String characterId) {
     return mongoTemplate.findById(characterId, Character.class);
   }
 
   @CrossOrigin
-  @GetMapping(API_VERSION + PLAYER + METHOD_FETCH + "/{uid}")
+  @GetMapping(API_VERSION + PLAYER + METHOD_FETCH + "/{uid:^[0-9]*$}")
   public Player fetchPlayer(@PathVariable("uid") String uid) {
     return mongoTemplate.findById(uid, Player.class);
   }
@@ -80,7 +80,7 @@ public class HqEndpoint {
   }
 
   @CrossOrigin
-  @GetMapping(API_VERSION + PLAYER + CHARACTER_LIST + METHOD_FETCH + "/{uid}")
+  @GetMapping(API_VERSION + PLAYER + CHARACTER_LIST + METHOD_FETCH + "/{uid:^[0-9]*$}")
   public List<Character> fetchCharactersOfPlayer(@PathVariable("uid") String uid) {
     Player player = mongoTemplate.findById(uid, Player.class);
     List<String> characterIDs = Objects.requireNonNull(player, "player was null").getCharacters();
