@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
  * Datum: 12.11.2018                      
  * Funktion/Komponente: -              
  * Beschreibung: -                     
- * API: -                              
+ * API: -
  **************************************/
 @RestController
 @Log
@@ -55,31 +55,26 @@ public class HqEndpoint {
   }
 
   //Queries
-  @CrossOrigin
   @GetMapping(API_VERSION + CHARACTER_LIST + METHOD_FETCH)
   public List<Character> fetchAllCharacters() {
     return mongoTemplate.findAll(Character.class);
   }
 
-  @CrossOrigin
   @GetMapping(API_VERSION + CHARACTER + METHOD_FETCH + "/{characterId:^[0-9]*$}")
   public Character fetchCharacter(@PathVariable("characterId") String characterId) {
     return mongoTemplate.findById(characterId, Character.class);
   }
 
-  @CrossOrigin
   @GetMapping(API_VERSION + PLAYER + METHOD_FETCH + "/{uid:^[0-9]*$}")
   public Player fetchPlayer(@PathVariable("uid") String uid) {
     return mongoTemplate.findById(uid, Player.class);
   }
 
-  @CrossOrigin
   @GetMapping(API_VERSION + PLAYER_LIST + METHOD_FETCH)
   public List<Player> fetchAllPlayers() {
     return mongoTemplate.findAll(Player.class);
   }
 
-  @CrossOrigin
   @GetMapping(API_VERSION + PLAYER + CHARACTER_LIST + METHOD_FETCH + "/{uid:^[0-9]*$}")
   public List<Character> fetchCharactersOfPlayer(@PathVariable("uid") String uid) {
     Player player = mongoTemplate.findById(uid, Player.class);

@@ -61,17 +61,24 @@ GET http://{{host}}:80/api/v0.1/player/fetch/4607255831
 ###
 
 GET http://{{host}}:80/api/v0.1/players/fetch
-Authorization: Basic MTIzNTM2NDMyNDphYmMxMjM=
 
 ###
 
 GET http://{{host}}:80/api/v0.1/player/characters/fetch/4607255831
-Authorization: Basic eGV0cmE1NTU6YWJjMTIz
 
 ###
 GET http://{{host}}:80/api/v0.1/player/characters/fetch/0000000001
 
 ###
 GET http://{{host}}:80/api/v0.1/player/characters/fetch/1235364324
+
+### test
+POST http://{{host}}:80/login
+Content-Type: application/json
+
+{
+  "steamid": "1235364324",
+  "password": "password456"
+}
 
 ###
