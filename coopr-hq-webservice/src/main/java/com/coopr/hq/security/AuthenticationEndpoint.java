@@ -46,17 +46,19 @@ public class AuthenticationEndpoint {
     String uid = userCredentials.getSteamid();
     String password = userCredentials.getPassword();
 
-    if (uid == null) {
-      return new AuthResponse(false, "no uid defined");
-    }
-    if (password == null) {
-      return new AuthResponse(false, "no password defined");
+    if (cookieValue != null) {
+      Query query = new Query().addCriteria(Criteria.where("cookieHash").is(cookieValue));
+      RememberMeCookie rememberMeCookies = mongoTemplate.findOne(query, RememberMeCookie.class);
+      if (rememberMeCookies.getCookieType().equals(REMEMBER_ME_COOKIE) && rememberMeCookies.getCookieHash().equals(cookieValue)) {
+        return new AuthResponse(true, rememberMeCookies.getSteamID(), "remember-me token still active");
+      }
     }
 
-    if (cookieValue != null) {
-      if (checkRememberMeToken(uid, cookieValue)) {
-        return new AuthResponse(true, "remember-me token still active");
-      }
+    if (uid == null) {
+      return new AuthResponse(false, uid, "no uid defined");
+    }
+    if (password == null) {
+      return new AuthResponse(false, uid, "no password defined");
     }
 
     log.info("trying to authenticate for " + uid);
@@ -64,21 +66,15 @@ public class AuthenticationEndpoint {
     Player player = mongoTemplate.findOne(query, Player.class);
 
     if (player == null) {
-      return new AuthResponse(false, "given Steam-ID '" + uid + "' could not be found in database");
+      return new AuthResponse(false, uid, "given Steam-ID '" + uid + "' could not be found in database");
     }
 
     if (player.getPassword().equals(password) == false) {
-      return new AuthResponse(false, "given password does not match user");
+      return new AuthResponse(false, uid, "given password does not match user");
     }
 
     saveRememberMeToken(player, response);
-    return new AuthResponse(true, "login successful");
-  }
-
-  private boolean checkRememberMeToken(String uid, String cookieHash) {
-    Query query = new Query().addCriteria(Criteria.where("_id").is(uid));
-    RememberMeCookie rememberMeCookies = mongoTemplate.findOne(query, RememberMeCookie.class);
-    return rememberMeCookies.getCookieType().equals(REMEMBER_ME_COOKIE) && rememberMeCookies.getCookieHash().equals(cookieHash);
+    return new AuthResponse(true, uid, "login successful");
   }
 
   private void saveRememberMeToken(Player player, HttpServletResponse response) {

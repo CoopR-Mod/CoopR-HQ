@@ -14,6 +14,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class AuthResponse {
   private boolean authenticated;
+  private String steamid;
   private String reason;
 }
 
