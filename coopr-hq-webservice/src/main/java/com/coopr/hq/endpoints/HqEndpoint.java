@@ -50,7 +50,11 @@ public class HqEndpoint {
   }
 
   @PostMapping(value = API_VERSION + PLAYER + METHOD_SAVE, consumes = MediaType.APPLICATION_JSON_VALUE)
-  public void updatePlayer(@RequestBody Player player) {
+  public void createPlayer(@RequestBody Player player) {
+    if (mongoTemplate.findOne(player.getUid()) != null) {
+      log.info("player already exists");
+      return;
+    }
     mongoTemplate.save(player);
   }
 
