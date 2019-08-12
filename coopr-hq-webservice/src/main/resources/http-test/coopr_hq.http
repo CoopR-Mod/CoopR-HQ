@@ -6,71 +6,71 @@
 # * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
 
 
-POST http://{{host}}:80/api/v0.1/characters/save
+POST http://{{host}}:{{port}}/api/v0.1/characters/save
 Content-Type: application/json
 
 < testCharactersForPlayer1.json
 
 ###
 
-POST http://{{host}}:80/api/v0.1/characters/save
+POST http://{{host}}:{{port}}/api/v0.1/characters/save
 Content-Type: application/json
 
 < testCharactersForPlayer2.json
 
 ###
 
-POST http://{{host}}:80/api/v0.1/characters/save
+POST http://{{host}}:{{port}}/api/v0.1/characters/save
 Content-Type: application/json
 
 < allCharacters.json
 
 ###
 
-POST http://{{host}}:80/api/v0.1/player/save
+POST http://{{host}}:{{port}}/api/v0.1/player/save
 Content-Type: application/json
 
 < testPlayer1.json
 
 ###
 
-POST http://{{host}}:80/api/v0.1/player/save
+POST http://{{host}}:{{port}}/api/v0.1/player/save
 Content-Type: application/json
 
 < testPlayer3.json
 
 ###
 
-POST http://{{host}}:80/api/v0.1/player/save
+POST http://{{host}}:{{port}}/api/v0.1/player/save
 Content-Type: application/json
 
 < testPlayer2.json
 
 ###
 
-GET http://{{host}}:80/api/v0.1/characters/fetch
+GET http://{{host}}:{{port}}/api/v0.1/characters/fetch
 
 ###
 
-GET http://{{host}}:80/api/v0.1/character/fetch/4235
+GET http://{{host}}:{{port}}/api/v0.1/character/fetch/4235
 
 ###
 
-GET http://{{host}}:80/api/v0.1/player/fetch/4607255831
+GET http://{{host}}:{{port}}/api/v0.1/player/fetch/4607255831
 
 ###
 
-GET http://{{host}}:80/api/v0.1/players/fetch
+GET http://{{host}}:{{port}}/api/v0.1/players/fetch
 
 ###
 
-GET http://{{host}}:80/api/v0.1/player/characters/fetch/4607255831
+GET http://{{host}}:{{port}}/api/v0.1/player/characters/fetch/4607255831
 
 ###
-GET http://{{host}}:80/api/v0.1/player/characters/fetch/0000000001
+GET http://{{host}}:{{port}}/api/v0.1/player/characters/fetch/0000000001
 
 ###
-GET http://{{host}}:80/api/v0.1/player/characters/fetch/1235364324
+GET http://{{host}}:{{port}}/api/v0.1/player/characters/fetch/1235364324
 
 ### test
 POST http://{{host}}:80/login
